@@ -1,0 +1,16 @@
+8	Orientation	./PREA/videos/PREA_MaleEnglish	question	correct	wrong	wrong2	wrong3	12.8411924	1	video
+9	Orientation	./PREA/videos/PREA_MaleEnglish	question	false				26.2331793	0	document
+10	Orientation	./PREA/videos/PREA_MaleEnglish	what is the title of this video	Speaking Up	Who knows	wtf	who cares	93.033907	1	video
+11	Orientation	./PREA/videos/PREA_MaleEnglish	Is this called who cares?	false				93.033907	0	video
+12	ICVC	somepage	question	true				60.0	0	video
+13	General Health	./videos/EatLess	Why eat less	Its bad for you	I don't know	who care	what	21.7575174	1	video
+14	General Health	./videos/EatLess	how many adults are obese	1 in 10	1 in 20	1 in 30	1 in 40	31.6038763	1	video
+15	General Health	./videos/EatLess	This video about hamburgers	false				31.6038763	0	video
+16	General Health	./videos/TakeControlOfYourHeart	What is the name of this video	Take Control	Run	Walk	Skip	16.3551566	1	video
+17	General Health	./videos/TakeControlOfYourHeart	What is the name of this video	Take Control	Run	Walk	Skip	17.2670632	1	video
+18	General Health	./videos/MyPyramid	What video is this	My Pyramid	My donkey	My horse	My cow	15.5075223	1	video
+19	General Health	./videos/IntroductionToWellness	My question	answer	no	no	no	0	1	video
+20	General Health	./videos/PlanningHealthyLifestyles	question2	answer	what	no	no	0	1	video
+21	General Health	./videos/NutritionForFitnessAndWellness	question	answer	no	no	no	0	1	video
+22	General Health	./videos/EatLess	What is the best eating	Fruit	weoinwea	ionwef	oiwnef	6.4508117	1	video
+23	General Health	./videos/EatLess	Is this video called whatever	false				12.6779169	0	video

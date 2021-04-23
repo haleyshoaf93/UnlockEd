@@ -1,0 +1,43 @@
+
+<?php
+	set_time_limit(60000);
+
+
+	
+	
+	$P = new PDO("mysql:dbname=usertracking;host=127.0.0.1","root","admin");
+	$P->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	$date = new DateTime(NULL,new DateTimeZone("America/Chicago"));
+	$datestr = $date->format('Y-m-d H:i:s');
+	for($i = 1; $i < 1000; $i++)
+	{
+		for($j = 1; $j < 1000; $j++)
+		{
+			#$sql = "INSERT INTO `usertracking`.`usertracking` (`user`, `location`, `timestamp`, `type`, `Field1`, `Field2`, `Field3`, `Comment`) VALUES (\'527993\', \'href\', CURRENT_TIMESTAMP, \'video\', \'field\', \'field\', \'field\', \'comment\');";
+			
+			try{
+			#$sql = "INSERT INTO `usertracking` (`user`, `location`, `timestamp`, `type`, `Field1`, `Field2`, `Field3`, `Comment`) VALUES (\'".$i."\', \'href\', CURRENT_TIMESTAMP, \'video\', \'field\', \'field\', \'field\', \'comment\');";
+			$sql = "INSERT INTO `usertracking` VALUES (\"".$i."\",\"href\",CURRENT_TIMESTAMP ,\"video\",\"field\",\"field\",\"field\",\"comment\");";
+			echo $sql;
+			$P->exec($sql);
+			}
+			catch(PDOException $e)
+			{
+				echo $e->getMessage();
+			}
+
+			echo $i.":".$j."<br>";
+		}
+	}
+
+	
+
+	
+	
+	set_time_limit(30);
+	
+	
+echo "Finished";
+
+?>

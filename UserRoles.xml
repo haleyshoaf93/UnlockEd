@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<roles>
+  <Programs>Programs</Programs>
+  <Diagnostics>Diagnostics</Diagnostics>
+  <Orientation>Orientation</Orientation>
+  <GeneralHealth>General Health</GeneralHealth>
+  <BasicEducation>Basic Education</BasicEducation>
+  <HiSETEducation>High School Equivalency Test</HiSETEducation>
+  <Khan>Khan Academy</Khan>
+  <AdvancedEducation>Advanced Education</AdvancedEducation>
+  <Reentry>Reentry</Reentry>
+  <LifeSkills>Life Skills</LifeSkills>
+  <WES>Workplace Skills</WES>
+  <Trades>Trades</Trades>
+  <EDNAS>EDNAS</EDNAS>
+  <LaunchCode>Launch Code</LaunchCode>
+  <ProgramPlanned>Program Planned (Ad Seg)</ProgramPlanned>
+  <AngerManagement>Anger Mangement (Ad Seg)</AngerManagement>
+  <Veterans>Veterans</Veterans>
+  <Incentives>Incentives</Incentives>
+</roles>

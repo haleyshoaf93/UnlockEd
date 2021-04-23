@@ -1,0 +1,1 @@
+$sql=\"SELECT * FROM Quizzes WHERE location='./videos/IntroductionToWellness' OR "location='./videos/MyPyramid' OR "location='./videos/TakeControlOfYourHeart' OR "location='' OR "
