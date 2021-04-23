@@ -1,0 +1,41 @@
+.libItemTable{
+	height:100px;
+	width:300px; 
+	white-space:normal; 
+	table-layout:fixed; 
+	overflow:hidden;
+}
+
+.libItemTitle{
+	font-weight:bold;
+	color:#CF0
+}
+.vidLength{ 
+font-size:10px;
+}
+
+.returnToLibLink{
+	color: #FFF;
+}
+
+img[src^='images']{
+	width:128px;
+	height:97px;
+}
+
+.inputtext{
+	width:100%;
+}
+
+.inputtxtheight{
+	height:50px;
+}
+
+.thumImgCell{
+	width:150px;
+}
+
+.quizcheckbox{
+width:200px;
+height:100px;
+}
