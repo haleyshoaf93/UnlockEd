@@ -1,78 +1,168 @@
 <?php
-if (!isset($_SESSION)) {
-  session_start();
-}
-$_SESSION['MM_Username'] = NULL;
-$_SESSION['MM_UserGroup'] = NULL;
-unset($_SESSION['MM_Username']);
-unset($_SESSION['MM_UserGroup']);
-
-$_SESSION = array();
-if (ini_get("session.use_cookies")) {
-$params = session_get_cookie_params();
-setcookie(session_name(), '', time() - 42000,
-$params["path"], $params["domain"],
-$params["secure"], $params["httponly"]
-);
-}
-
-session_destroy();
+$MM_authorizedUsers = "Administrator,DatabaseAdmin,DiagnosticReportsAdmin,CreateUsersAdmin,DeleteUsersAdmin,ProgramReportsAdmin";
+include_once '../scripts/php/protected.php';
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>UnlockEd</title>
+    <title>Adminsitrator Tasks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="./stylesheets/mystyles.css" rel="stylesheet" type="text/css">
-    <link href="./scripts/jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
-    <script src="./scripts/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="./scripts/jquery/jquery.mobile-1.4.5.js" type="text/javascript"></script>
+    <link href="../stylesheets/mystyles.css" rel="stylesheet" type="text/css" />
+    <link href="../scripts/jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <script src="../scripts/jquery/jquery.js" type="text/javascript"></script>
+    <script src="../scripts/jquery/jquery.mobile-1.4.5.js" type="text/javascript"></script>
+    <script src="../scripts/javascript/vidandtracking.js"></script>
+    <script>var program = "Admin";</script>
 
 </head>
-
 <body>
-    <div data-role="page" id="page" data-theme="b">
-        <div data-role="header" data-theme="b">
-            <h1>UnlockEd</h1>
-	   
-        
-        </div>
-        <div data-role="content" data-type="horizontal">
-            <div class="ui-grid-solo">
-                <div class="ui-block-a">
-                    <div class="ui-bar ui-bar-b ui-corner-all" style="text-align: center;">
-                        <p>Welcome to <i>UnlockEd</i>, a place where we can work together to accomplish the common goal of a better, safer world of opportunity and growth.</p>
-
-                    </div>
-                </div>
-            </div>
-
-                <div class="ui-body">
-                
-                <div class="ui-grid-b">
-                <div class="ui-block-a">
-                </div>
-                <div class="ui-block-b">
-                <a href="login.php" style="width:100%; height:200px;" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-transition="flip"><img src="images/welcome.png" style="height:185px;width:185px;"/></a>
-                </div>
-                <div class="ui-block-c">
-                </div>
-                </div>
-                <?php
-		
-		?>
-                
-            </div>
-
-
-            </div>
 <?php
-include_once("./scripts/php/footer.php");
+echo '<input type="hidden" id="userField" value="';
+echo $_SESSION['MM_Username'];
+echo '"/>';
 ?>
+    <div data-role="page" data-theme="b">
+        <div data-role="header">
+<?php
+include "../scripts/php/navbar.php";
+?>
+            <h2>Administrator Tasks</h2>
         </div>
+
+        <div data-role="main" class="ui-content">
+            <div class="ui-bar ui-bar-b ui-corner-all">UnlockEd Usage Information</div>
+            <a onclick="loadPDF('./docs/MORE_Summary.pdf');" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled">
+
+                <table class="libItemTable">
+                    <tr>
+                        <td>
+                            <img src="images/Document.png" /></td>
+                        <td><span class="libItemTitle">UnlockEd Summary</span><br />
+                            A Brief Description of the UnlockEd
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled" data-ajax="false">
+                <table class="libItemTable">
+                    <tr>
+                        <td>
+                            <img src="images/Tour.png" /></td>
+                        <td><span class="libItemTitle">UnlockEd Tour</span><br />
+                            Learn All About the UnlockEd
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <a onclick="loadPDF('./docs/MORESetup.pdf');" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled">
+
+                <table class="libItemTable">
+                    <tr>
+                        <td>
+                            <img src="images/Network.png" /></td>
+                        <td><span class="libItemTitle">UnlockEd Setup Manual</span><br />
+                            Instructions for setting up the UnlockEd
+                        </td>
+                    </tr>
+                </table>
+            </a>
+
+            <a onclick="loadPDF('./docs/MOREDAI.pdf');" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled">
+
+                <table class="libItemTable">
+                    <tr>
+                        <td>
+                            <img src="images/DI.png" /></td>
+                        <td><span class="libItemTitle">UnlockEd Design &amp; Implementation</span><br />
+                            Implementation Document
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <div class="ui-bar ui-bar-b ui-corner-all">User Management</div>
+            <a href="./php/ManageUsers.php" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-ajax="false">
+                <table class="libItemTable">
+                    <tr>
+                        <td>
+                            <img src="images/Users.png" /></td>
+                        <td><span class="libItemTitle">Manage Users</span><br />
+                            Add, Delete or Modify User Accounts<br />
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <a href="./php/UserReports.php" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-ajax="false">
+                <table class="libItemTable">
+                    <tr>
+                        <td>
+                            <img src="images/User.png" /></td>
+                        <td><span class="libItemTitle">User Reports</span><br />
+                            Review an Offender's Progress<br />
+                        </td>
+                    </tr>
+                </table>
+            </a>
+<a href="./php/UserPrivileges.php" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-ajax="false">
+                <table class="libItemTable">
+                    <tr>
+                        <td>
+                            <img src="images/Login.png" /></td>
+                        <td><span class="libItemTitle">User Privileges</span><br />
+                            Review User Accounts and Privileges<br />
+                        </td>
+                    </tr>
+                </table>
+            </a>
+    
+        <div class="ui-bar ui-bar-b ui-corner-all">Manage Databases</div>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled" data-ajax="false">
+            <table class="libItemTable">
+                <tr>
+                    <td>
+                        <img src="images/database.png" /></td>
+                    <td><span class="libItemTitle">Backup Databases</span><br />
+                       Backup User &amp; Tracking Databases<br />
+                    </td>
+                </tr>
+            </table>
+        </a>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled" data-ajax="false">
+            <table class="libItemTable">
+                <tr>
+                    <td>
+                        <img src="images/restore.png" /></td>
+                    <td><span class="libItemTitle">Restore Databases</span><br />
+                       Restore User &amp; Tracking Databases<br />
+                    </td>
+                </tr>
+            </table>
+        </a>
+ <div class="ui-bar ui-bar-b ui-corner-all">Quizzes</div>
+       <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled" data-ajax="false">
+            <table class="libItemTable">
+                <tr>
+                    <td>
+                        <img src="images/QuizPage.png" /></td>
+                    <td><span class="libItemTitle">Create Quizzes</span><br />
+                       Create Quiz Pages<br />
+                    </td>
+                </tr>
+            </table>
+        </a>
+
+
+
+ 
+
+</div>
+<?php
+include "../scripts/php/footer.php";
+?>
+
     </div>
+
 </body>
 </html>
+
 

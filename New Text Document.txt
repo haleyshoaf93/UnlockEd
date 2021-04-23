@@ -1,0 +1,3 @@
+SELECT TOP 4 *
+FROM (SELECT *, Rnd(Id) As RandomValue FROM Table1)
+ORDER BY RandomValue;

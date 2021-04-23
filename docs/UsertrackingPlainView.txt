@@ -1,0 +1,1 @@
+SELECT `user`,AES_DECRYPT(`location`,md5(`user`)),`timestamp`,AES_DECRYPT(`type`,md5(`user`)),AES_DECRYPT(`Field1`,md5(`user`)),AES_DECRYPT(`Field2`,md5(`user`)),AES_DECRYPT(`Field3`,md5(`user`)),AES_DECRYPT(`Comment`,md5(`user`)) FROM `usertracking` where user=527993;

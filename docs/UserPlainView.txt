@@ -1,0 +1,1 @@
+SELECT `user`,AES_DECRYPT(`realm`,md5(`user`)),AES_DECRYPT(`MOREPoints`,md5(`user`)),AES_DECRYPT(`MOREBadges`,md5(`user`)) FROM `users`;

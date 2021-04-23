@@ -1,0 +1,7 @@
+<?php
+include_once '../scripts/php/sqlstrings.php';
+$cmd = realpath($htpath."\\7z\\7z.exe").' x '.'"'.realpath($htpath).'\\htdocs\\launchcode\\freecss\\free.exe.7z"';
+echo $cmd;
+echo exec($cmd);
+
+?>
